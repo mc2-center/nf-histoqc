@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 // Set parameters and defaults
-params.in = '/Users/ataylor/Documents/projects/htan/histoqc-test/14000001.svs'
+params.in = '/Users/ataylor/Documents/GitHub/amazon-comprehend-medical-image-deidentification/images/CMU-1-Small-Region.svs'
 params.outDir = './outputs'
 params.config = 'default'
 
@@ -17,6 +17,7 @@ process HISTOQC {
 
     input:
     path x
+
     output:
     path 'histoqc_output_*'
 
@@ -24,10 +25,18 @@ process HISTOQC {
     // Need to set permissions for the non-root docker user 
     // See https://github.com/InformaticsMatters/pipelines/issues/22
     beforeScript 'chmod g+w .'
-
-    """
-    python -m histoqc $x -c $params.config
-    """
+    
+    script:
+    // 'default' is not a named config so we use conditional 
+    // scripts to skip the config variable if it should be default
+    if (params.config == 'default')
+        """
+        python -m histoqc $x
+        """
+    else
+        """
+        python -m histoqc -c $params.config $x
+        """
 }
 
 workflow {
