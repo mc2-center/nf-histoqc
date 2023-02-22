@@ -6,7 +6,7 @@ params.outDir = './outputs'
 params.config = 'default'
 
 // Set an input channel
-input_ch = Channel.of(params.in)
+input_ch = Channel.fromPath(params.in)
 
 
 process HISTOQC {
