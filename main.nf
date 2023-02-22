@@ -17,8 +17,6 @@ process HISTOQC {
 
     input:
     path x
-    val config
-
     output:
     path 'histoqc_output_*'
 
@@ -28,7 +26,7 @@ process HISTOQC {
     beforeScript 'chmod g+w .'
 
     """
-    python -m histoqc $x -c $config
+    python -m histoqc $x -c $params.config
     """
 }
 
