@@ -4,19 +4,32 @@
   "title": ". pipeline parameters",
   "description": "",
   "type": "object",
-  "properties": {
-    "in": {
-      "type": "string",
-      "default": null
-    },
-    "outDir": {
-      "type": "string",
-      "default": null
-    },
-    "config": {
-      "type": "string",
-      "default": "default",
-      "enum": ["default", "ihc", "clinical", "first", "light"]
+  "definitions": {
+    "input_parameters": {
+      "title": "Input parameters",
+      "type": "object",
+      "description": "",
+      "default": "",
+      "properties": {
+        "outDir": {
+          "type": "string",
+          "default": "None"
+        },
+        "in": {
+          "type": "string",
+          "default": "None"
+        },
+        "config": {
+          "type": "string",
+          "default": "default",
+          "enum": ["default", "ihc", "clinical", "first", "light"]
+        }
+      }
     }
-  }
+  },
+  "allOf": [
+    {
+      "$ref": "#/definitions/input_parameters"
+    }
+  ]
 }
