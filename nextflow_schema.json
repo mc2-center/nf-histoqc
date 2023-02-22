@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/./master/nextflow_schema.json",
+  "title": ". pipeline parameters",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "in": {
+      "type": "string",
+      "default": null
+    },
+    "outDir": {
+      "type": "string",
+      "default": null
+    },
+    "config": {
+      "type": "string",
+      "default": "default",
+      "enum": ["default", "ihc", "clinical", "first", "light"]
+    }
+  }
+}
