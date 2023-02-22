@@ -16,11 +16,10 @@ process HISTOQC {
     publishDir "${params.outDir}", mode: 'copy'
 
     input:
-    path x
+    path images
 
     output:
     path 'histoqc_output_*'
-
 
     // Need to set permissions for the non-root docker user 
     // See https://github.com/InformaticsMatters/pipelines/issues/22
@@ -31,11 +30,11 @@ process HISTOQC {
     // scripts to skip the config variable if it should be default
     if (params.config == 'default')
         """
-        python -m histoqc $x
+        python -m histoqc $images
         """
     else
         """
-        python -m histoqc -c $params.config $x
+        python -m histoqc -c $params.config $images
         """
 }
 
