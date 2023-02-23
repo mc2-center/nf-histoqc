@@ -11,7 +11,7 @@ input_ch = Channel.fromPath(params.in)
 
 process HISTOQC {
 
-    container 'kaczmarj/histoqc:latest'
+    container 'adamjtaylor/histoqc:latest'
 
     publishDir "${params.outDir}", mode: 'copy'
 
