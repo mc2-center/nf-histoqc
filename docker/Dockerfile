@@ -1,4 +1,4 @@
-# Dockerfile for HistoQC.
+# Dockerfile for HistoQC. Designed to use with the Nextflow pipeline nf-histoqc
 #
 # This Dockerfile uses two stages. In the first, the project's python dependencies are
 # installed. This requires a C compiler. In the second stage, the HistoQC directory and
