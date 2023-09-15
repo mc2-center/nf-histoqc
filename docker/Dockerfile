@@ -8,8 +8,9 @@
 FROM python:3.8 AS builder
 ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /opt/HistoQC
-COPY . .
-COPY requirements.txt .
+RUN git clone https://github.com/choosehappy/HistoQC.git .
+##COPY . .
+##COPY requirements.txt .
 # Create virtual environment for this project. This makes it easier to copy the Python
 # installation into the second stage of the build.
 ENV PATH="/opt/HistoQC/venv/bin:$PATH"
