@@ -1,6 +1,6 @@
 process HISTOQC {
 
-    container 'adamjtaylor/histoqc:latest'
+    container 'ghcr.io/adamjtaylor/nf-histoqc:sha-d7ee80c'
 
     publishDir "${params.outDir}", mode: 'copy'
 
