@@ -1,6 +1,6 @@
 process COLLECT {
 
-    publishDir "./outputs", mode: 'copy', overwrite: true
+    publishDir "${params.outDir}", mode: 'copy'
 
     input:
     path results, stageAs: "?/*"
