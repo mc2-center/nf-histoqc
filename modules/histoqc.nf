@@ -1,7 +1,5 @@
 process HISTOQC {
-
-    container 'ghcr.io/mc2-center/nf-histoqc:latest'
-
+    
     publishDir "${params.outDir}", mode: 'copy'
 
     input:

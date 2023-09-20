@@ -1,7 +1,5 @@
 process COLLECT {
 
-    container 'alpine:latest'
-
     publishDir "./outputs", mode: 'copy', overwrite: true
 
     input:
