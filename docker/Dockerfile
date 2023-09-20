@@ -27,10 +27,13 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libopenslide0 \
         libtk8.6 \
-				procps \
+			  procps \
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /opt/HistoQC
 COPY --from=builder /opt/HistoQC/ .
+RUN apt-get update \
+    && apt-get install -y \
+    procps
 ENV PATH="/opt/HistoQC/venv/bin:$PATH"
 
 WORKDIR /data
