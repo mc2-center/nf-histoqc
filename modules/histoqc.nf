@@ -1,11 +1,11 @@
 process HISTOQC {
 
-    container 'ghcr.io/mc2-center/nf-histoqc:latest'
+    container 'ghcr.io/adamjtaylor/nf-histoqc'
 
     publishDir "${params.outDir}", mode: 'copy'
 
     input:
-    path images
+    tuple val(meta), path(images)
 
     output:
     path "${images.simpleName}_out/results.tsv", emit: results
