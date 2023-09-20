@@ -1,6 +1,6 @@
 process HISTOQC {
     
-    publishDir "${params.outDir}", mode: 'copy'
+    publishDir "${params.outDir}/$images", mode: 'copy', pattern: "*.png"
 
     input:
     tuple val(meta), path(images)
@@ -8,7 +8,7 @@ process HISTOQC {
     output:
     path "${images.simpleName}_out/results.tsv", emit: results
     path "${images.simpleName}_out/error.log", emit: errors
-    path "${images.simpleName}_out/**/*", emit: output
+    path "*.png", emit: masks
 
     // Need to set permissions for the non-root docker user 
     // See https://github.com/InformaticsMatters/pipelines/issues/22
@@ -20,6 +20,7 @@ process HISTOQC {
     if (params.config == 'default')
         """
         python -m histoqc $images -o ${images.simpleName}_out
+        mv ${images.simpleName}_out/$images/*.png .
         """
     else
         """

@@ -9,6 +9,6 @@ workflow RUN_HISTOQC {
     HISTOQC ( images ) 
 
     emit:
-    output = HISTOQC.out.output
+    output = HISTOQC.out.masks
     results = HISTOQC.out.results
 }

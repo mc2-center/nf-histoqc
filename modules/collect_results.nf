@@ -6,15 +6,15 @@ process COLLECT {
     path results, stageAs: "?/*"
 
     output:
-    path 'merged_results.tsv'
+    path 'results.tsv'
 
     script:
 
     """
-    cp ${results[0]} merged_results.tsv
+    cp ${results[0]} results.tsv
     for tsv in ${results}; do
          if [[ \$tsv != ${results[0]} ]]; then
-              awk NF \$tsv | tail -n +7 >> merged_results.tsv
+              awk NF \$tsv | tail -n +7 >> results.tsv
          fi
     done
     """
