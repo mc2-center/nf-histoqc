@@ -1,6 +1,6 @@
 process HISTOQC {
 
-    container 'ghcr.io/adamjtaylor/nf-histoqc:sha-d7ee80c'
+    container 'ghcr.io/mc2-center/nf-histoqc:latest'
 
     publishDir "${params.outDir}", mode: 'copy'
 
@@ -8,7 +8,9 @@ process HISTOQC {
     path images
 
     output:
-    path 'histoqc_output_*'
+    path "${images.simpleName}_out/results.tsv", emit: results
+    path "${images.simpleName}_out/error.log", emit: errors
+    path "${images.simpleName}_out/**/*", emit: output
 
     // Need to set permissions for the non-root docker user 
     // See https://github.com/InformaticsMatters/pipelines/issues/22
@@ -19,10 +21,10 @@ process HISTOQC {
     // scripts to skip the config variable if it should be default
     if (params.config == 'default')
         """
-        python -m histoqc $images
+        python -m histoqc $images -o ${images.simpleName}_out
         """
     else
         """
-        python -m histoqc -c $params.config $images
+        python -m histoqc -c $params.config $images -o ${images.simpleName}_out
         """
 }
