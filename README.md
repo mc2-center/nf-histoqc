@@ -1,6 +1,6 @@
 # `nf-histoqc`
 
-A nextflow wrapper for HistoQC
+A [NextFlow](https://nextflow.io) wrapper for [HistoQC](https://github.com/choosehappy/HistoQC)
 
 ### Local usage
 
