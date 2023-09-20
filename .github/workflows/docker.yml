@@ -6,7 +6,7 @@ on:
       - "main"
     paths:
       - "docker/**"
-      - ".github/workflows/ci.yml"
+      - ".github/workflows/docker.yml"
 
 env:
   REGISTRY: ghcr.io
