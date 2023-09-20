@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this workflow, please cite both the repoistory and the HistoQC paper"
+authors:
+- family-names: "Taylor"
+  given-names: "Adam J."
+  orcid: "https://orcid.org/0000-0003-0501-8886"
+title: "nf-histoqc"
+version: pre-release
+license: MIT
+#doi: 10.5281/zenodo.1234
+#date-released: 2023-09-20
+url: "https://github.com/mc2-center/nf-histoqc"
+references:
+  - type: article
+    scope: Cite this paper to reference the HistoQC tool.
+    authors:
+      - family-names: Janowczyk
+        given-names: Andrew
+      - family-names: Ren
+        given-names: Zuo
+      - family-names: Gilmore
+        given-names: Hannah
+      - family-names: Feldman
+        given-names: Michael
+      - family-names: Madabhushi
+        given-names: Anant
+    title: "HistoQC: An Open-Source Quality Control Tool for Digital Pathology Slides"
+    year: 2019
+    journal: JCO Clinical Cancer Informatics
+    volume: 3
+    pages: "1-7"
+    doi: 10.1200/CCI.18.00157
