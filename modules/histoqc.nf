@@ -25,5 +25,6 @@ process HISTOQC {
     else
         """
         python -m histoqc -c $params.config $images -o ${images.simpleName}_out
+        mv ${images.simpleName}_out/$images/*.png .
         """
 }
