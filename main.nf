@@ -8,7 +8,7 @@ params.outDir = './outputs'
 params.config = 'default'
 
 include { HISTOQC } from './modules/histoqc.nf'
-include { COMBINE_RESULTS } from './modules/combine_results.nf'
+// include { COMBINE_RESULTS } from './modules/combine_results.nf'
 
 workflow {
     input_ch = Channel.fromPath(params.in)
