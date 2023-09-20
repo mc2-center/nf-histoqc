@@ -5,7 +5,7 @@ process HISTOQC {
     publishDir "${params.outDir}", mode: 'copy'
 
     input:
-    path images
+    tuple val(meta), path(images)
 
     output:
     path "${images.simpleName}_out/results.tsv", emit: results
