@@ -5,7 +5,10 @@ A [NextFlow](https://nextflow.io) wrapper for [HistoQC](https://github.com/choos
 ### Local usage
 
 ```
-nextflow run mc2-center/nf-histoqc --input <path-to-samplesheet> --outdir <path-to-output-directory> --profile local
+nextflow run mc2-center/nf-histoqc \
+  --input <path-to-samplesheet> \
+  --outdir <path-to-output-directory> \
+  --profile local
 ```
 
 ### Test usage
