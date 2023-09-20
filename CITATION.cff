@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this workflow, please cite both the repoistory and the HistoQC paper"
 authors:
-- family-names: "Taylor"
-  given-names: "Adam J."
-  orcid: "https://orcid.org/0000-0003-0501-8886"
+  - family-names: "Taylor"
+    given-names: "Adam J."
+    orcid: "https://orcid.org/0000-0003-0501-8886"
 title: "nf-histoqc"
 version: pre-release
 license: MIT
