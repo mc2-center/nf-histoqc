@@ -1,4 +1,4 @@
-# `nf-histoqc`
+# 🍏🔬✅ `nf-histoqc`
 
 A [NextFlow](https://nextflow.io) wrapper for [HistoQC](https://github.com/choosehappy/HistoQC)
 
