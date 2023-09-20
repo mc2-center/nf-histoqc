@@ -13,16 +13,16 @@
       "properties": {
         "outDir": {
           "type": "string",
-          "default": "None"
+          "default": "outputs"
         },
-        "in": {
+        "input": {
           "type": "string",
           "default": "None"
         },
         "config": {
           "type": "string",
           "default": "default",
-          "enum": ["default", "ihc", "clinical", "first", "light"]
+          "enum": ["default", "ihc", "clinical", "first", "light", "v2.1"]
         }
       }
     }
