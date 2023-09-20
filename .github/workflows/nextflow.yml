@@ -1,4 +1,4 @@
-name: Run nf-artist test data
+name: Run nf-histoqc test data
 
 on:
   pull_request:
