@@ -1,6 +1,6 @@
 # 🍏🔬✅ `nf-histoqc`
 
-A [NextFlow](https://nextflow.io) wrapper the digital pathology quality control tool [HistoQC](https://github.com/choosehappy/HistoQC).
+A [NextFlow](https://nextflow.io) wrapper for the digital pathology quality control tool [HistoQC](https://github.com/choosehappy/HistoQC).
 
 Developed for the [Multi-Consortia Coordinating (MC2) Center](https://sagebionetworks.org/research-projects/mc2-center/) administrative supplement "Assuring AI/ML-readiness of digital pathology in diverse existing and emerging multi-omic datasets through quality control workflows" ([3U24CA274494-02S2](https://reporter.nih.gov/search/ONzQ0UoaEUyMrZ2_l6U_yw/project-details/10841333)).
 
