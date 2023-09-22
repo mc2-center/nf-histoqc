@@ -68,3 +68,29 @@ The Dockerfile is based on that provided in the HistoQC repo, with the addition 
 
 The container is automatically pulled by NextFlow, but if local use is required you can use:
 `docker pull ghcr.io/mc2-center/nf-histoqc:latest`
+
+### DAG
+
+>A Nextflow pipeline is implicitly modelled by a direct acyclic graph (DAG). The vertices in the graph represent the pipeline’s processes and operators, while the edges represent the data connections (i.e. channels) between them.
+
+```mermaid
+flowchart TD
+    p0((Channel.fromPath))
+    p1([splitCsv])
+    p2([map])
+    p3[NF_HISTOQC:RUN_HISTOQC:HISTOQC]
+    p4(( ))
+    p5(( ))
+    p6([collect])
+    p7[NF_HISTOQC:COLLECT_RESULTS:COLLECT]
+    p8(( ))
+    p0 --> p1
+    p1 --> p2
+    p2 -->|images| p3
+    p3 -->|results| p6
+    p3 --> p5
+    p3 -->|output| p4
+    p6 --> p7
+    p7 --> p8
+
+```
