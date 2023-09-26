@@ -2,6 +2,14 @@
 
 A [NextFlow](https://nextflow.io) wrapper for the digital pathology quality control tool [HistoQC](https://github.com/choosehappy/HistoQC).
 
+[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/) 
+[![Launch on Nextflow Tower](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Nextflow%20Tower-%234256e7)](https://tower.nf/launch?pipeline=https://github.com/mc2-center/nf-histoqc) 
+![GitHub Actions Workflow Test Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/nextflow.yml/badge.svg)
+
+[![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/) 
+![GitHub Actions Docker Build Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/docker.yml/badge.svg)
+![Container Scan Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/scan_images.yml/badge.svg)
+
 Developed for the [Multi-Consortia Coordinating (MC2) Center](https://sagebionetworks.org/research-projects/mc2-center/) administrative supplement "Assuring AI/ML-readiness of digital pathology in diverse existing and emerging multi-omic datasets through quality control workflows" ([3U24CA274494-02S2](https://reporter.nih.gov/search/ONzQ0UoaEUyMrZ2_l6U_yw/project-details/10841333)).
 
 > The project will improve the AI/ML readiness of existing and emerging NIH-supported digital pathology public datasets, and research programs supported by the MC2 Center, by automatically evaluating and reporting artifacts and batch effects using open-source NIH-funded tools. These enriched datasets will enable researchers to exclude artifacts from their training and validation sets in a reproducible manner, providing greater trust in cross-investigator dataset reuse while enhancing AI/ML model performance and robustness. To quantitatively demonstrate the provided value-add of cleaned AI/ML-ready data in downstream tasks, a prototypical deep learning use case is planned.
