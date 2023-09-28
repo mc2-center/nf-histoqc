@@ -19,7 +19,8 @@ Developed for the [Multi-Consortia Coordinating (MC2) Center](https://sagebionet
 ```
 nextflow run mc2-center/nf-histoqc \
   --input <path-to-samplesheet> \
-  --outdir <path-to-output-directory> \
+  --outDir <path-to-output-directory> \
+  --config <HistoQC config to use>
   --profile local
 ```
 
