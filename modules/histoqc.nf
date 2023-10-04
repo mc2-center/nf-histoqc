@@ -1,5 +1,7 @@
 process HISTOQC {
     
+    tag {"$meta.id"}
+    
     publishDir "${params.outDir}/$images", mode: 'copy', pattern: "*.png"
 
     input:
