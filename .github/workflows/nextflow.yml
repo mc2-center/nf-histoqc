@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  nf-artist:
+  nf-histoqc:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
