@@ -1,6 +1,8 @@
-# 🍏🔬✅ `nf-histoqc`
+# nf-histoqc
 
 A [NextFlow](https://nextflow.io) wrapper for the digital pathology quality control tool [HistoQC](https://github.com/choosehappy/HistoQC).
+
+![nf-histoqc-icon-small](https://github.com/mc2-center/nf-histoqc/assets/14945787/eb932d67-aa3b-4e6a-a5af-4f6aea7b03a4)
 
 [![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/) 
 [![Launch on Nextflow Tower](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Nextflow%20Tower-%234256e7)](https://tower.nf/launch?pipeline=https://github.com/mc2-center/nf-histoqc) 
