@@ -1,3 +1,5 @@
 reports:
   "results.tsv":
     display: "HistoQC results"
+  "results_tidy.csv":
+    display: "HistoQC results (tidy)"
