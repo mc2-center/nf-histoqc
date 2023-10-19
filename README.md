@@ -2,11 +2,11 @@
 
 A [NextFlow](https://nextflow.io) wrapper for the digital pathology quality control tool [HistoQC](https://github.com/choosehappy/HistoQC).
 
-[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/) 
-[![Launch on Nextflow Tower](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Nextflow%20Tower-%234256e7)](https://tower.nf/launch?pipeline=https://github.com/mc2-center/nf-histoqc) 
+[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)
+[![Launch on Nextflow Tower](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Nextflow%20Tower-%234256e7)](https://tower.nf/launch?pipeline=https://github.com/mc2-center/nf-histoqc)
 ![GitHub Actions Workflow Test Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/nextflow.yml/badge.svg)
 
-[![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/) 
+[![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
 ![GitHub Actions Docker Build Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/docker.yml/badge.svg)
 ![Container Scan Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/scan_images.yml/badge.svg)
 
@@ -35,9 +35,11 @@ nextflow run mc2-center/nf-histoqc -profile test
 ### Samplesheet
 
 `nf-histoqc` takes a CSV samplesheet containing the following columns
+
 - `image`: [string] Path or URI to image to be processed
 
 Other columns may be provided but are not used by the pipeline.
+
 ### Output
 
 `nf-histoqc` outputs the following directory structure into the specified output directory (`outDir`):
@@ -60,14 +62,14 @@ Other columns may be provided but are not used by the pipeline.
 
 #### HistoQC options
 
-- `config`: Configuration file used by HistoQC.  Must be one of `default`, `ihc`, `clinical`, `first`, `light`, or `v2.1`.Custom config files are not currently supported.
+- `config`: Configuration file used by HistoQC. Must be one of `default`, `ihc`, `clinical`, `first`, `light`, or `v2.1`.Custom config files are not currently supported.
 
 ### Profiles
 
 - `test`: Runs test samplesheet in `test_data/test_samplesheet.csv`
 - `sage`: Optimized configuration for Sage's Nextflow Tower instance.
 - `local`: Low resources suitable for runs on laptops etc.
-- `tower`: Minimal configuration for Nextflow Tower. 
+- `tower`: Minimal configuration for Nextflow Tower.
 
 ### Docker container
 
@@ -80,7 +82,7 @@ The container is automatically pulled by NextFlow, but if local use is required 
 
 ### DAG
 
->A Nextflow pipeline is implicitly modelled by a direct acyclic graph (DAG). The vertices in the graph represent the pipeline’s processes and operators, while the edges represent the data connections (i.e. channels) between them.
+> A Nextflow pipeline is implicitly modelled by a direct acyclic graph (DAG). The vertices in the graph represent the pipeline’s processes and operators, while the edges represent the data connections (i.e. channels) between them.
 
 ```mermaid
 flowchart TD

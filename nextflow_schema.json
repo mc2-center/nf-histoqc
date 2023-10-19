@@ -12,33 +12,33 @@
       "description": "Define where the pipeline should find input data and save output data.",
       "required": ["input", "outdir"],
       "properties": {
-          "input": {
-              "type": "string",
-              "format": "file-path",
-              "mimetype": "text/csv",
-              "description": "Path to a CSV samplesheet"
-          },
-          "outDir": {
-              "type": "string",
-              "description": "Directory in which outputs are placed",
-              "default": "outputs"
-          }
+        "input": {
+          "type": "string",
+          "format": "file-path",
+          "mimetype": "text/csv",
+          "description": "Path to a CSV samplesheet"
+        },
+        "outDir": {
+          "type": "string",
+          "description": "Directory in which outputs are placed",
+          "default": "outputs"
+        }
       }
     },
-    "HistoQC options" : {
+    "HistoQC options": {
       "title": "HistoQC options",
       "type": "object",
       "fa_icon": "fas fa-solid fa-microscope",
       "description": "Define parameters for histoqc",
       "required": ["config"],
       "properties": {
-          "config": {
-            "type": "string",
-            "default": "default",
-            "enum": ["default", "ihc", "clinical", "first", "light", "v2.1"]
-          }
+        "config": {
+          "type": "string",
+          "default": "default",
+          "enum": ["default", "ihc", "clinical", "first", "light", "v2.1"]
+        }
       }
-    } 
+    }
   },
   "allOf": [
     {
