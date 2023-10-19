@@ -1,14 +1,15 @@
-# 🍏🔬✅ `nf-histoqc`
+# nf-histoqc
 
 A [NextFlow](https://nextflow.io) wrapper for the digital pathology quality control tool [HistoQC](https://github.com/choosehappy/HistoQC).
 
-[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)
-[![Launch on Nextflow Tower](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Nextflow%20Tower-%234256e7)](https://tower.nf/launch?pipeline=https://github.com/mc2-center/nf-histoqc)
-![GitHub Actions Workflow Test Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/nextflow.yml/badge.svg)
+![nf-histoqc-icon-small](https://github.com/mc2-center/nf-histoqc/assets/14945787/eb932d67-aa3b-4e6a-a5af-4f6aea7b03a4)
 
-[![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)
-![GitHub Actions Docker Build Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/docker.yml/badge.svg)
-![Container Scan Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/scan_images.yml/badge.svg)
+[![Nextflow](https://img.shields.io/badge/nextflow%20DSL2-%E2%89%A523.04.0-23aa62.svg)](https://www.nextflow.io/)  
+[![Launch on Nextflow Tower](https://img.shields.io/badge/Launch%20%F0%9F%9A%80-Nextflow%20Tower-%234256e7)](https://tower.nf/launch?pipeline=https://github.com/mc2-center/nf-histoqc)   
+![GitHub Actions Workflow Test Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/nextflow.yml/badge.svg)  
+[![run with docker](https://img.shields.io/badge/run%20with-docker-0db7ed?labelColor=000000&logo=docker)](https://www.docker.com/)  
+![GitHub Actions Docker Build Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/docker.yml/badge.svg)  
+![Container Scan Status](https://github.com/mc2-center/nf-histoqc/actions/workflows/scan_images.yml/badge.svg) 
 
 Developed for the [Multi-Consortia Coordinating (MC2) Center](https://sagebionetworks.org/research-projects/mc2-center/) administrative supplement "Assuring AI/ML-readiness of digital pathology in diverse existing and emerging multi-omic datasets through quality control workflows" ([3U24CA274494-02S2](https://reporter.nih.gov/search/ONzQ0UoaEUyMrZ2_l6U_yw/project-details/10841333)).
 
