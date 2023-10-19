@@ -1,7 +1,7 @@
 process TIDY {
 
     publishDir "${params.outDir}", mode: 'copy'
-    container 'ghcr.io/sage-bionetworks-workflows/nf-artist:latest'
+    container 'amancevice/pandas:slim'
 
     input:
     path results
