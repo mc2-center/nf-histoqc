@@ -1,7 +1,7 @@
 process COLLECT {
 
     publishDir "${params.outDir}", mode: 'copy'
-    container 'debian:trixie'
+    container 'ubuntu:jammy'
 
     input:
     path results, stageAs: "?/*"
