@@ -1,7 +1,7 @@
 process COLLECT {
 
     publishDir "${params.outDir}", mode: 'copy'
-    container 'alpine'
+    container 'debian:trixie-slim'
 
     input:
     path results, stageAs: "?/*"
@@ -12,7 +12,6 @@ process COLLECT {
     script:
 
     """
-    #!/bin/ash
     cp ${results[0]} results.tsv
     for tsv in ${results}; do
          if [[ \$tsv != ${results[0]} ]]; then
