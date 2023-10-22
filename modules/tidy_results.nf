@@ -1,7 +1,7 @@
 process TIDY {
 
     publishDir "${params.outDir}", mode: 'copy'
-    container 'quay.io/biocontainers/pandas
+    container 'quay.io/biocontainers/pandas'
 
     input:
     path results
