@@ -17,11 +17,8 @@ process HISTOQC {
     beforeScript 'chmod g+w .'
     
     script:
-    // 'default' is not a named config so we use conditional 
-    // scripts to skip the config variable if it should be default  
-    def config_var = (params.config == 'default') ? "" : "-c $params.config" // Define config_var here
     """
-    python -m histoqc ${config_var} $images -o out
+    python -m histoqc -c ${params.config} $images -o out
     mv out/$images/*.png .
     """
 }
