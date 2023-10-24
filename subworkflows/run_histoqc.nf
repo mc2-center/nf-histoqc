@@ -11,4 +11,5 @@ workflow RUN_HISTOQC {
     emit:
     output = HISTOQC.out.masks
     results = HISTOQC.out.results
+    errors = HISTOQC.out.errors
 }
