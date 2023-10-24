@@ -1,4 +1,4 @@
-workflow SAMPLESHEET_SPLIT {
+workflow SPLIT {
     take:
     samplesheet
     main:

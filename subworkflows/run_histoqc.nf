@@ -1,6 +1,6 @@
 include { HISTOQC } from "../modules/histoqc.nf"
 
-workflow RUN_HISTOQC {
+workflow RUN {
     
     take:
     images

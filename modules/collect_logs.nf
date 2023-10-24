@@ -1,4 +1,4 @@
-process COLLECT_LOGS {
+process LOGS {
 
     publishDir "${params.outDir}", mode: 'copy'
     container 'ubuntu:jammy'
