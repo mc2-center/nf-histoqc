@@ -1,6 +1,6 @@
 include { HISTOQC } from "../modules/histoqc.nf"
 
-workflow RUN_HISTOQC {
+workflow RUN {
     
     take:
     images
@@ -11,4 +11,5 @@ workflow RUN_HISTOQC {
     emit:
     output = HISTOQC.out.masks
     results = HISTOQC.out.results
+    errors = HISTOQC.out.errors
 }

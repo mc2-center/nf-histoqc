@@ -1,11 +1,16 @@
-include { COLLECT } from "../modules/collect_results.nf"
+include { RESULTS } from "../modules/collect_results.nf"
+include { TIDY } from "../modules/tidy_results.nf"
+include { LOGS } from "../modules/collect_logs.nf"
 
 
-workflow COLLECT_RESULTS {
+workflow COLLECT {
     take:
     results
+    errors
     main:
     
-    COLLECT ( results.collect() )
+    RESULTS ( results.collect() )
+    TIDY ( RESULTS.out) 
+    LOGS ( errors.collect() )
 
 }

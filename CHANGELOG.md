@@ -16,5 +16,5 @@ This is an initial development release for the kick-off of the MC2 Digital Patho
 - Samplesheet
 - Configs including `test`
 - Schema
-- Output format same as pure HistoQC 
+- Output format same as pure HistoQC
 - GH actions to build docker image, scan image, and require sucessful workflow test run for PRs.

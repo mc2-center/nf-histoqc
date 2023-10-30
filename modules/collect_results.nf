@@ -1,6 +1,7 @@
-process COLLECT {
+process RESULTS {
 
     publishDir "${params.outDir}", mode: 'copy'
+    container 'ubuntu:jammy'
 
     input:
     path results, stageAs: "?/*"
