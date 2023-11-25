@@ -42,7 +42,7 @@
     "conversion_options": {
       "title": "Conversion options",
       "type": "object",
-      "fa_icon": "fas fa-solid fa-rotate-right",
+      "fa_icon": "fas fa-solid fa-magic",
       "description": "Define parameters used during conversion to openslide compatible tiff",
       "properties": {
         "convert": {
