@@ -1,4 +1,5 @@
 include { HISTOQC } from "../modules/histoqc.nf"
+include { CONVERT } from "../modules/convert_to_openslide.nf"
 
 workflow RUN {
     
@@ -6,7 +7,8 @@ workflow RUN {
     images
 
     main:
-    HISTOQC ( images ) 
+
+    images | (params.convert ? CONVERT : it) | HISTOQC
 
     emit:
     output = HISTOQC.out.masks
