@@ -8,7 +8,7 @@ workflow RUN {
 
     main:
 
-    ifparams.convert ? CONVERT(images) | HISTOQC : HISTOQC(images)
+    params.convert ? CONVERT(images) | HISTOQC : HISTOQC(images)
 
     emit:
     output = HISTOQC.out.masks
