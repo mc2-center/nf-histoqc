@@ -44,19 +44,21 @@
       "type": "object",
       "fa_icon": "fas fa-solid fa-magic",
       "description": "Define parameters used during conversion to openslide compatible tiff",
-      "hidden": true,
       "properties": {
         "convert": {
             "type": "boolean",
-            "description": "Should images be converted to an openslide compatible tiff"
+            "description": "Should images be converted to an openslide compatible tiff",
+            "hidden": true
         },
         "mag": {
             "type": "integer",
-            "description": "Nominal magnification to inject into openslide compatible tiff"
+            "description": "Nominal magnification to inject into openslide compatible tiff",
+            "hidden": true
         },
         "mpp": {
           "type": "number",
-          "description": "Image resolution (microns per pixel) to inject into openslide compatible tiff"
+          "description": "Image resolution (microns per pixel) to inject into openslide compatible tiff",
+          "hidden": true
         }
       }
     }
