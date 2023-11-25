@@ -38,6 +38,26 @@
           "enum": ["default", "ihc", "clinical", "first", "light", "v2.1"]
         }
       }
+    },
+    "conversion_options": {
+      "title": "Conversion options",
+      "type": "object",
+      "fa_icon": "fas fa-solid fa-rotate-right",
+      "description": "Define parameters used during conversion to openslide compatible tiff",
+      "properties": {
+        "convert": {
+            "type": "boolean",
+            "description": "Should images be converted to an openslide compatible tiff"
+        },
+        "mag": {
+            "type": "integer",
+            "description": "Nominal magnification to inject into openslide compatible tiff"
+        },
+        "mpp": {
+          "type": "number",
+          "description": "Image resolution (pixels per micron) to inject into openslide compatible tiff"
+        }
+      }
     }
   },
   "allOf": [
