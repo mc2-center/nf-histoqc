@@ -44,6 +44,7 @@
       "type": "object",
       "fa_icon": "fas fa-solid fa-magic",
       "description": "Define parameters used during conversion to openslide compatible tiff",
+      "hidden": true,
       "properties": {
         "convert": {
             "type": "boolean",
@@ -55,7 +56,7 @@
         },
         "mpp": {
           "type": "number",
-          "description": "Image resolution (pixels per micron) to inject into openslide compatible tiff"
+          "description": "Image resolution (microns per pixel) to inject into openslide compatible tiff"
         }
       }
     }
