@@ -16,9 +16,6 @@ process HISTOQC {
     path "*.png", emit: masks
     
     script:
-    // Check if configInput is a file or a string
-    //def configFile = file(configInput).getName().endsWith('.ini')? file(configInput) : params.config
-
     """
     echo "Using config: $ini"
     python -m histoqc -c $ini $images -o out

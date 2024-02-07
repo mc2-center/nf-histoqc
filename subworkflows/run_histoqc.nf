@@ -10,8 +10,6 @@ workflow RUN {
 
     def config_ch = params.custom_config ? file(params.custom_config) : params.config
 
-    println "config_ch: $config_ch"
-
     if (params.convert) {
         CONVERT( images ) 
         HISTOQC( CONVERT.out, config_ch )
