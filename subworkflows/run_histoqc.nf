@@ -6,7 +6,8 @@ workflow RUN {
     images
 
     main:
-    HISTOQC ( images ) 
+    def configInput = params.custom_config && file(params.custom_config).exists() ? file(params.custom_config) : params.config
+    HISTOQC ( images, configInput ) 
 
     emit:
     output = HISTOQC.out.masks

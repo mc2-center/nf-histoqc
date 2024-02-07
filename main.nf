@@ -7,6 +7,7 @@ if (params.input) { params.input = file(params.input) } else { exit 1, 'Input sa
 // Set parameters and defaults
 params.outDir = './outputs'
 params.config = 'default'
+params.custom_config = false
 
 include { NF_HISTOQC } from './workflows/nf_histoqc.nf'
 // include { COMBINE_RESULTS } from './modules/combine_results.nf'
