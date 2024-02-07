@@ -1,4 +1,5 @@
 include { HISTOQC } from "../modules/histoqc.nf"
+include { CONVERT } from "../modules/convert_to_openslide.nf"
 
 workflow RUN {
     
@@ -7,7 +8,7 @@ workflow RUN {
 
     main:
     def configInput = params.custom_config && file(params.custom_config).exists() ? file(params.custom_config) : params.config
-    HISTOQC ( images, configInput ) 
+    params.convert ? CONVERT(images) | HISTOQC : HISTOQC(images)
 
     emit:
     output = HISTOQC.out.masks

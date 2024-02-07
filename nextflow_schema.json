@@ -45,6 +45,29 @@
           "description": "Path to a HistoQC config `.ini` file. Overrides `config`"
         }
       }
+    },
+    "conversion_options": {
+      "title": "Conversion options",
+      "type": "object",
+      "fa_icon": "fas fa-solid fa-magic",
+      "description": "Define parameters used during conversion to openslide compatible tiff",
+      "properties": {
+        "convert": {
+            "type": "boolean",
+            "description": "Should images be converted to an openslide compatible tiff",
+            "hidden": true
+        },
+        "mag": {
+            "type": "integer",
+            "description": "Nominal magnification to inject into openslide compatible tiff",
+            "hidden": true
+        },
+        "mpp": {
+          "type": "number",
+          "description": "Image resolution (microns per pixel) to inject into openslide compatible tiff",
+          "hidden": true
+        }
+      }
     }
   },
   "allOf": [
