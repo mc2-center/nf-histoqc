@@ -8,7 +8,7 @@ process HISTOQC {
 
     input:
     tuple val(meta), path(images)
-    val configInput
+    val ini
 
     output:
     path "out/results.tsv", emit: results
@@ -17,11 +17,11 @@ process HISTOQC {
     
     script:
     // Check if configInput is a file or a string
-    def configFile = file(configInput).getName().endsWith('.ini')? file(configInput) : params.config
+    //def configFile = file(configInput).getName().endsWith('.ini')? file(configInput) : params.config
 
     """
-    echo "Using config: $configFile"
-    python -m histoqc -c $configFile $images -o out
+    echo "Using config: $ini"
+    python -m histoqc -c $ini $images -o out
     mv out/$images/*.png .
     """
 }

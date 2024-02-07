@@ -7,8 +7,18 @@ workflow RUN {
     images
 
     main:
-    def configInput = params.custom_config && file(params.custom_config).exists() ? file(params.custom_config) : params.config
-    params.convert ? CONVERT(images) | HISTOQC : HISTOQC(images)
+
+    def config_ch = params.custom_config ? file(params.custom_config) : params.config
+
+    println "config_ch: $config_ch"
+
+    if (params.convert) {
+        CONVERT( images ) 
+        HISTOQC( CONVERT.out, config_ch )
+    }
+    else {
+        HISTOQC ( images, config_ch )
+    }
 
     emit:
     output = HISTOQC.out.masks
