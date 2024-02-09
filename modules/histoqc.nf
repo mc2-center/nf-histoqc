@@ -8,7 +8,8 @@ process HISTOQC {
 
     input:
     tuple val(meta), path(images)
-    val ini
+    val config_string
+    path custom_config
 
     output:
     path "out/results.tsv", emit: results
@@ -17,8 +18,21 @@ process HISTOQC {
     
     script:
     """
-    echo "Using config: $ini"
-    python -m histoqc -c $ini $images -o out
+    echo $config_string
+    echo $custom_config
+    # Add the logic for the if config_string or custom_config here
+    # Check if custom_config points to "empty.txt"
+    if [[ "$custom_config" == *empty.txt ]]; then
+        # If yes, use the config_string
+        ini="$config_string"
+    else
+        # If no, use the path to custom_config
+        ini=$custom_config
+    fi
+
+
+    echo "Using config: \$ini"
+    python -m histoqc $images -o out -c \$ini
     mv out/$images/*.png .
     """
 }

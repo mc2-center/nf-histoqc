@@ -8,14 +8,16 @@ workflow RUN {
 
     main:
 
-    def config_ch = params.custom_config ? file(params.custom_config) : params.config
+    def custom_config = params.custom_config ? Channel.fromPath(params.custom_config).first() : Channel.fromPath("assets/empty.txt").first() // need to pass a dummy file in the projectDir or similar
 
-    if (params.convert) {
-        CONVERT( images ) 
-        HISTOQC( CONVERT.out, config_ch )
-    }
+    // Scenario 1: Conversion and custom configuration
+    if (params.convert ) {
+        CONVERT(images)
+        HISTOQC(CONVERT.out, params.config, custom_config)
+    } 
+    // Scenario 3: No conversion, but with custom configuration
     else {
-        HISTOQC ( images, config_ch )
+        HISTOQC(images, params.config, custom_config)
     }
 
     emit:
