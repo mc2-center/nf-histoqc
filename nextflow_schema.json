@@ -29,13 +29,20 @@
       "title": "HistoQC options",
       "type": "object",
       "fa_icon": "fas fa-solid fa-microscope",
-      "description": "Define parameters for histoqc",
+      "description": "Define parameters for HistoQC",
       "required": ["config"],
       "properties": {
         "config": {
           "type": "string",
           "default": "default",
-          "enum": ["default", "ihc", "clinical", "first", "light", "v2.1"]
+          "enum": ["default", "ihc", "clinical", "first", "light", "v2.1"],
+          "description": "Name of built-in HistoQC config. Overridden by `custom_config`."
+        },
+        "custom_config": {
+          "type": "string",
+          "format": "file-path",
+          "mimetype": "text/plain",
+          "description": "Path to a HistoQC config `.ini` file. Overrides `config`"
         }
       }
     },

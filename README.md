@@ -61,9 +61,11 @@ Other columns may be provided but are not used by the pipeline.
 - `input`: Path to a CSV sample sheet. This parameter is required.
 - `outDir`: Specifies the directory where the output data should be saved. Default is `outputs`.
 
-#### HistoQC options
+#### Other options
 
-- `config`: Configuration file used by HistoQC. Must be one of `default`, `ihc`, `clinical`, `first`, `light`, or `v2.1`.Custom config files are not currently supported.
+- `config` (string): Name of a built-in configuration used by HistoQC. Must be one of `default`, `ihc`, `clinical`, `first`, `light`, or `v2.1`. Defaults to `default`.
+- `custom_config` (path): Path to a HistoQC compatible configuration file. Must have a `.ini` extension. Overrides `config`.
+- `convert` (bool): If provided, `vips` is used to [create an OpenSlide compatiable TIFF file](http://www.andrewjanowczyk.com/converting-an-existing-image-into-an-openslide-compatible-format/). Uses [mc2-center/histoqc-openslide-converter](https://github.com/mc2-center/histoqc-openslide-converter).
 
 ### Profiles
 
@@ -86,23 +88,45 @@ The container is automatically pulled by NextFlow, but if local use is required 
 > A Nextflow pipeline is implicitly modelled by a direct acyclic graph (DAG). The vertices in the graph represent the pipeline’s processes and operators, while the edges represent the data connections (i.e. channels) between them.
 
 ```mermaid
-flowchart TD
-    p0((Channel.fromPath))
-    p1([splitCsv])
-    p2([map])
-    p3[NF_HISTOQC:RUN_HISTOQC:HISTOQC]
-    p4(( ))
-    p5(( ))
-    p6([collect])
-    p7[NF_HISTOQC:COLLECT_RESULTS:COLLECT]
-    p8(( ))
-    p0 --> p1
-    p1 --> p2
-    p2 -->|images| p3
-    p3 -->|results| p6
-    p3 --> p5
-    p3 -->|output| p4
-    p6 --> p7
-    p7 --> p8
+flowchart TB
+    subgraph " "
+    v0["Channel.fromPath"]
+    v3["Channel.fromPath"]
+    v6["config_string"]
+    end
+    subgraph NF_HISTOQC
+    subgraph RUN
+    v5([CONVERT])
+    v7([HISTOQC])
+    v1(( ))
+    v4(( ))
+    v9(( ))
+    v13(( ))
+    end
+    subgraph COLLECT
+    v10([RESULTS])
+    v11([TIDY])
+    v14([LOGS])
+    end
+    end
+    subgraph " "
+    v8["output"]
+    v12[" "]
+    v15[" "]
+    end
+    v0 --> v1
+    v3 --> v4
+    v1 --> v5
+    v5 --> v7
+    v6 --> v7
+    v4 --> v7
+    v7 --> v8
+    v7 --> v9
+    v7 --> v13
+    v9 --> v10
+    v10 --> v11
+    v11 --> v12
+    v13 --> v14
+    v14 --> v15
 
 ```
