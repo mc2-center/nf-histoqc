@@ -2,6 +2,8 @@ process HISTOQC {
     
     tag {"$meta.id"}
 
+    //memory { "${meta.memory} GB" }
+
     container 'ghcr.io/mc2-center/nf-histoqc:latest'
     
     publishDir "${params.outDir}/$images", mode: 'copy', pattern: "*.png"
