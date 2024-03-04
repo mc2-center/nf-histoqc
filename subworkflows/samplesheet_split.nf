@@ -32,8 +32,6 @@ workflow SPLIT {
 
 // Adjusted function to directly take fileSizeBytes
 def calculateMemoryAllocation(double fileSizeBytes) {
-    // Placeholder for your memory calculation logic
-    // This example directly uses fileSizeGB
     def memoryGB = Math.ceil(Math.exp((0.497 * Math.log(fileSizeBytes) - 8.74)) + (2 * 0.39))
-    return memoryGB < 2 ? 2 : memoryGB  // Ensuring a minimum of 6 GB
+    return memoryGB < 2 ? 2 : memoryGB  // Ensuring a minimum of 2 GB
 }
