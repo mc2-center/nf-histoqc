@@ -4,8 +4,10 @@ process HISTOQC {
 
     container 'ghcr.io/mc2-center/nf-histoqc:latest'
     
-    publishDir "${params.outDir}/$images", mode: 'copy', pattern: "*.png"
-
+publishDir "${params.outDir}/${meta.group ? "${meta.group}/" : ''}/$images", mode: 'copy', pattern: "out/**/*.png", saveAs: { filename ->
+    // Extracts the filename with its extension, discarding the path
+    return new File(filename).getName()
+}
     input:
     tuple val(meta), path(images)
     val config_string
@@ -14,7 +16,7 @@ process HISTOQC {
     output:
     path "out/results.tsv", emit: results
     path "out/error.log", emit: errors
-    path "*.png", emit: masks
+    path "out/$images/*.png", emit: masks
     
     script:
     """
@@ -30,6 +32,5 @@ process HISTOQC {
 
     echo "Using config: \$ini"
     python -m histoqc $images -o out -c \$ini
-    mv out/$images/*.png .
     """
 }
