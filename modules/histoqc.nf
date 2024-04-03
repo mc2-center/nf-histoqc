@@ -4,10 +4,10 @@ process HISTOQC {
 
     container 'ghcr.io/mc2-center/nf-histoqc:latest'
     
-publishDir "${params.outDir}/${meta.group ? "${meta.group}/" : ''}/$images", mode: 'copy', pattern: "out/**/*.png", saveAs: { filename ->
-    // Extracts the filename with its extension, discarding the path
-    return new File(filename).getName()
-}
+    publishDir "${params.outDir}/${meta.group && params.group ? "${meta.group}/" : ''}$images", mode: 'copy', pattern: "out/**/*.png", saveAs: { filename ->
+        // Extracts the filename with its extension, discarding the path
+        return new File(filename).getName()
+    }
     input:
     tuple val(meta), path(images)
     val config_string
@@ -32,5 +32,11 @@ publishDir "${params.outDir}/${meta.group ? "${meta.group}/" : ''}/$images", mod
 
     echo "Using config: \$ini"
     python -m histoqc $images -o out -c \$ini
+
+    #  Append meta.group to the last non-empty line if used
+    if [ ! -z "${params.group}" ] && [ ! -z "${meta.group}" ]; then
+        # Find the last non-empty line and append meta.group, considering there's only one empty line at the end
+        awk 'NF{last=NR} {lines[NR]=\$0} END{for (i=1; i<=last; i++) if(i==last) print "${meta.group}/" lines[i]; else print lines[i]; if(NR>last) print ""}' out/results.tsv > out/tmp.tsv && mv out/tmp.tsv out/results.tsv
+    fi
     """
 }

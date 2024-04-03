@@ -14,6 +14,9 @@ workflow SPLIT {
             } else {
                 meta.id = file(row.image).simpleName
             }
+            if (row.group && params.group) {
+                meta.group = row.group
+            }
             image = file(row.image)
             [meta, image]
         }
