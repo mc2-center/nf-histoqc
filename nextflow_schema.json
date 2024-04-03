@@ -43,6 +43,11 @@
           "format": "file-path",
           "mimetype": "text/plain",
           "description": "Path to a HistoQC config `.ini` file. Overrides `config`"
+        },
+        "group": {
+          "title": "Output grouping",
+          "type": "boolean",
+          "description": "Arrange outputs into subfolders defined by the samplesheet `group` column"
         }
       }
     },

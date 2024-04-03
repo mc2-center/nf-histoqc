@@ -26,6 +26,8 @@ if ( params.custom_config ) {
 params.outDir = './outputs'
 params.config = 'default'
 
+params.group = false
+
 // Import workflow
 include { NF_HISTOQC } from './workflows/nf_histoqc.nf'
 
