@@ -9,8 +9,15 @@ workflow COLLECT {
     errors
     main:
     
-    RESULTS ( results.collect() )
-    TIDY ( RESULTS.out) 
-    LOGS ( errors.collect() )
+    // RESULTS ( results.collect() )
+    // TIDY ( RESULTS.out) 
+    //LOGS ( errors.collect() )
 
+    results
+        | collectFile(keepHeader: true, skip: 6, name: 'results.tsv', storeDir: params.outDir)
+        | TIDY
+
+     errors
+        | collectFile(name: 'errors.log', storeDir: params.outDir)
+        
 }
